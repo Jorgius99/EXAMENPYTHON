@@ -1,6 +1,8 @@
+import csv
 def read_data(nombre_fichero):
     data = {}
     with open(nombre_fichero, "r") as file:
+        reader = csv.reader(file)
         header = file.readline().strip().split(";")
         for line in file:
             values = line.strip().split(";")
@@ -16,4 +18,4 @@ with open('winequality.csv', 'r') as file:
     reader = csv.reader(file)
     header = file.readline().strip().split(";")
     for row in reader:
-        print({header[i]: row[i] for i in range(len(header))})
+        print({{header[i]: row[i] for i in range(len(header))}})
